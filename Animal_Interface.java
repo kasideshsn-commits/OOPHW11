@@ -8,3 +8,18 @@ public interface Animal_Interface {
     }
 
 }
+interface IMammalia{
+    void run();
+    
+}
+interface IDog{
+    void bark();
+    void bite();
+}
+void IAves{
+    void fly();
+}
+interface Ifish{
+    void swimming();
+}
+
