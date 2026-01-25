@@ -16,23 +16,49 @@ public:
     virtual void eat() = 0;
     virtual ~Animal_Interface() {}
 };
+class Imamalia{
+public:
+    virtual void run() = 0;
+}
+class IDog{
+public:
+    virtual void bark() =0;
+    virtual void bite() =0;
+    
+};
+class IAves{
+public:
+    virtual fly() = 0;
 
-class Animal {
+};
+class IFish{
+public:
+    virtual void swimming() = 0;
+
+
+};
+
+class Animal:public Animal_Interface {
 protected:
     Color color;
     Size size;
 
 public:
     Animal(Color color, Size size) : color(color), size(size) {}
-
+    void sound() override{
+        cout<<"animal"<<endl;
+    }
+    void eat() override{
+        cout<<"eat animal"<<endl;
+    }
     virtual string toString() {
         return "Animal";
     }
 
-    virtual ~Animal() {}
+    
 };
 
-class Mammalia : public Animal, public Animal_Interface {
+class Mammalia : public Animal, public Imammalia {
 protected:
     int number_Babies;
 
@@ -53,7 +79,7 @@ public:
     }
 };
 
-class Dog : public Mammalia {
+class Dog : public Mammalia ,public IDog{
 protected:
     bool fierce;
 
@@ -61,19 +87,19 @@ public:
     Dog(Color color, Size size, int number_Babies, bool fierce)
         : Mammalia(color, size, number_Babies), fierce(fierce) {}
 
-    void sound() override {
+    void sound()  {
         cout << "sound Dog" << endl;
     }
 
-    void eat() override {
+    void eat()  {
         cout << "Dog eat" << endl;
     }
 
-    void bark() {
+    void bark() override{
         cout << "Hong!" << endl;
     }
 
-    void Bite() {
+    void Bite() override{
         cout << "kad!!" << endl;
     }
 
@@ -96,19 +122,19 @@ public:
     }
 };
 
-class Aves : public Animal, public Animal_Interface {
+class Aves : public Animal, public IAves{
 public:
     Aves(Color color, Size size) : Animal(color, size) {}
 
-    void sound() override {
+    void sound()  {
         cout << "Fly" << endl;
     }
 
-    void eat() override {
+    void eat() {
         cout << "Aves eat" << endl;
     }
 
-    void fly() {
+    void fly() override{
         cout << "Aves Fly" << endl;
     }
 };
@@ -148,7 +174,7 @@ public:
     }
 };
 
-class Osteicthyes : public Animal, public Animal_Interface {
+class Osteicthyes : public Animal, public IFish{
 public:
     Osteicthyes(Color color, Size size) : Animal(color, size) {}
 
@@ -160,7 +186,7 @@ public:
         cout << "eat Os" << endl;
     }
 
-    void swimming() {
+    void swimming() override{
         cout << "os swimming" << endl;
     }
 };
@@ -173,11 +199,11 @@ public:
     Fish(Color color, Size size, string water_Group)
         : Osteicthyes(color, size), water_Group(water_Group) {}
 
-    void sound() override {
+    void sound()  {
         cout << "sound Fish" << endl;
     }
 
-    void eat() override {
+    void eat() {
         cout << "eat Fish" << endl;
     }
 
@@ -222,3 +248,4 @@ int main() {
 
     return 0;
 }
+
