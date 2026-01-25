@@ -67,7 +67,7 @@ abstract class Animal {
         return getClass().getName()+"color:"+color+"size:"+size;
     }
 }
-class Mammalia extends Animal implements Animal_Interface{
+class Mammalia extends Animal implements Imammalia{
 
     protected int number_Babies;
     public Mammalia(Color color,Size size,int number_Babies){
@@ -76,21 +76,21 @@ class Mammalia extends Animal implements Animal_Interface{
     }
 
 
-    @Override
+   
     public void eat() {
         System.out.println("Mammalia eat");
     }
 
-    @Override
+    
     public void sound() {
         System.out.println("Mammalia sound");
     }
-
+    @Oberride
     public void run() {
         System.out.println("Mammalia Run");
     }
 }
-class Dog extends Mammalia {
+class Dog extends Mammalia implements IDog {
 
     protected  boolean fierce;
     public Dog(Color color, Size size, int number_Babies,boolean fierce) {
@@ -98,18 +98,19 @@ class Dog extends Mammalia {
         this.fierce = fierce;
     }
 
-    @Override
+    
     public void sound() {
         System.out.println("sound Dog");
     }
-    @Override
+    
     public void eat(){
         System.out.println("Dog eat");
     }
-
+    @Override
     public void bark(){
         System.out.println("Hong!");
     }
+    @Override
     public void Bite(){
         System.out.println("kad!!");
     }
@@ -126,30 +127,31 @@ class ThaiRidgeBack extends Dog {
         super(color, size, number_Babies,fierce);
     }
 
-    @Override
+    
     public void sound() {
         System.out.println("Dog thai hong");
     }
 
-    @Override
+    
     public void eat() {
         System.out.println("Dog thai eat");
     }
 }
-class Aves extends Animal implements Animal_Interface{
+class Aves extends Animal implements IAves{
 
     public Aves(Color color, Size size) {
         super(color, size);
     }
+    @Override
     public void fly(){
         System.out.println("Aves Fly");
     }
-    @Override
+    
     public void sound() {
         System.out.println("Fly");
     }
 
-    @Override
+    
     public void eat() {
         System.out.println("Aves eat");
     }
@@ -162,12 +164,12 @@ class Bird extends Aves {
         this.egg = egg;
     }
 
-    @Override
+  
     public void sound() {
         System.out.println("Bird sound");
     }
 
-    @Override
+   
     public void eat() {
         System.out.println("Bird eat");
     }
@@ -184,31 +186,32 @@ class HummingBird extends Bird {
         super(color, size, egg);
     }
 
-    @Override
+   
     public void eat() {
         System.out.println("humming eat");
     }
 
-    @Override
+  
     public void sound() {
         System.out.println("Humming sound");
     }
 }
-class Osteicthyes extends Animal implements Animal_Interface {
+class Osteicthyes extends Animal implements IFish{
 
 
     public Osteicthyes(Color color, Size size) {
         super(color, size);
     }
-    @Override
+    
     public void sound(){
         System.out.println("sound Os");
     }
 
-    @Override
+    
     public void eat() {
         System.out.println("eat Os");
     }
+    @Override
     public void swimming(){
         System.out.println("os swimming");
     }
@@ -220,11 +223,11 @@ class Fish extends Osteicthyes {
         super(color, size);
         this.water_Group = water_Group;
     }
-    @Override
+ 
     public void sound(){
         System.out.println("sound Fiah");
     }
-    @Override
+  
     public void eat(){
         System.out.println("eat Fish");
     }
@@ -242,11 +245,11 @@ class AngleFish extends Fish {
         super(color, size, water_Group);
         this.location = location;
     }
-    @Override
+    
     public void sound(){
         System.out.println("AngleFish Sound");
     }
-    @Override
+    
     public void eat(){
         System.out.println("Eat AngleFish");
     }
